@@ -10,8 +10,8 @@ const routes: Routes = [
   {
     path: '',
     component: Mod1Component,
-    loadChildren: () =>
-      import('./mod1/mod1.module').then((file) => file.Mod1Module),
+    loadChildren: './mod1/mod1.module#Mod1Module',
+    pathMatch: 'full'
   },
   {
     path: 'mod1',
