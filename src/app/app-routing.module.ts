@@ -5,13 +5,14 @@ import { Mod1Module } from './mod1/mod1.module';
 import { Mod11Component } from './mod1/mod11.component';
 import { Mod2Component } from './mod2/mod2.component';
 import { Mod3Component } from './mod3/mod3.component';
+import { Page404Component } from './page404/page404.component';
 
 const routes: Routes = [
   {
     path: '',
     component: Mod1Component,
     loadChildren: './mod1/mod1.module#Mod1Module',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'mod1',
@@ -30,6 +31,15 @@ const routes: Routes = [
     component: Mod3Component,
     loadChildren: () =>
       import('./mod3/mod3.module').then((file) => file.Mod3Module),
+  },
+  {
+    path: '404',
+    component: Page404Component,
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+    pathMatch: 'full'
   },
 ];
 
